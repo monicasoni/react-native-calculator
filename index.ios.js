@@ -1,8 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+// It's property of Monica Soni
 
 import React, { Component } from 'react';
 import {
@@ -15,11 +11,11 @@ import {
 export default class Calculator extends Component {
 
   constructor(props) {
-      super(props)
-      this.state = { show: '' };
-      this.v1 = 0;
-      this.operator = null;
-      this.reset = false;
+    super(props)
+    this.state = { show: '' };
+    this.v1 = 0;
+    this.operator = null;
+    this.reset = false;
   }
 
   //////Perform operations on Tapping
@@ -50,28 +46,27 @@ export default class Calculator extends Component {
     }
   }
 
-enterTapped(enterVal) {
-  this.setState({value1: eval(''+this.state.value1+this.state.operatorValue+this.state.value2)});
-}
+  enterTapped(enterVal) {
+    this.setState({value1: eval(''+this.state.value1+this.state.operatorValue+this.state.value2)});
+  }
 
-//////To create button
+  //////To create button
   renderButton(value){
     const onPress = () => this.onTaping(value);
     return this.renderElement(value, onPress);
   }
 
-//To create Cancel button
+  //To create Cancel button
   renderCancel (value){
-  const onPress = () => this.onPressingCancelBtn(value);
-  return this.renderElement(value, onPress, {backgroundColor: 'red'}, {color: 'white', fontSize: 30,});
-}
+    const onPress = () => this.onPressingCancelBtn(value);
+    return this.renderElement(value, onPress, {backgroundColor: 'red'}, {color: 'white', fontSize: 30,});
+  }
 
   //////To create operator
   renderOperator(operator){
     const onPress = () => this.calculate(operator);
-    return this.renderElement(operator, onPress, {backgroundColor: 'orange'}, {color: 'white', fontWeight: '400', fontSize: 25,});
+    return this.renderElement(operator, onPress, {backgroundColor: 'orange'}, {color: 'white', fontWeight: '400', fontSize: 35,});
   }
-
 
   renderElement(value, onPress, style = null, textStyle= null) {
     return (
@@ -88,13 +83,11 @@ enterTapped(enterVal) {
     )
   }
 
-onPressingCancelBtn(value){
-   this.setState({ show: 0 });
-  // this.setState({ v1: 1});
-  // this.setState({operator: ''});
-  this.v1 = 0;
-  this.operator = 0;
-}
+  onPressingCancelBtn(value){
+    this.setState({ show: 0 });
+    this.v1 = 0;
+    this.operator = 0;
+  }
 
   render() {
     return (
@@ -131,6 +124,7 @@ onPressingCancelBtn(value){
       </View>
     );
   }
+
 }
 
 const styles = StyleSheet.create({
