@@ -35,8 +35,5 @@
 }
 
 @end
-
-
-
 // to release the app run this command in terminal where your package.json file exist
 // $ npm run build-ios

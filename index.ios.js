@@ -74,7 +74,7 @@ export default class Calculator extends Component {
         style={[styles.instructions, style]}
         onPress={onPress}
         activeOpacity= {0.5}
-        underlayColor={'#91AA9D'}
+        underlayColor= 'darkgray'
       >
         <Text style={[styles.welcome, textStyle]}>
           {value}
@@ -115,7 +115,7 @@ export default class Calculator extends Component {
             {this.renderOperator('+')}
           </View>
           <View style={styles.rows}>
-            {this.renderCancel('C')}
+            {!this.props.hideCButton && this.renderCancel('C')}
             {this.renderButton(0)}
             {this.renderButton('.')}
             {this.renderOperator('=')}
@@ -130,7 +130,7 @@ export default class Calculator extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'black',
   },
   welcome: {
     fontSize: 20,
@@ -153,4 +153,18 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Calculator', () => Calculator);
+
+class TestCalc extends Component {
+  render() {
+    return (
+      <View style={{flex: 1, shadowColor: 'gray', shadowOpacity: 2}}>
+        <View style={{flex: 1, paddingHorizontal: 0, paddingVertical: 0}} >
+          <Calculator hideCButton={false} />
+        </View>
+      </View>
+    );
+  }
+}
+
+
+AppRegistry.registerComponent('Calculator', () => TestCalc);
